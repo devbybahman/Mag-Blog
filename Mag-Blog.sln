@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mag-Blog.Web", "Mag-Blog.Web\Mag-Blog.Web.csproj", "{87AD2DED-F985-46F6-9E08-F26A680A9ADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mag-Blog.DataLayer", "Mag-Blog.DataLayer\Mag-Blog.DataLayer.csproj", "{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{87AD2DED-F985-46F6-9E08-F26A680A9ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AD2DED-F985-46F6-9E08-F26A680A9ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AD2DED-F985-46F6-9E08-F26A680A9ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
