@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mag_Blog.DataLayer.Migrations
 {
     [DbContext(typeof(BlogCobtext))]
-    [Migration("20250629134447_init")]
+    [Migration("20250629135653_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -183,7 +183,7 @@ namespace Mag_Blog.DataLayer.Migrations
                     b.HasOne("Mag_Blog.DataLayer.Entities.User", "User")
                         .WithMany("PostComments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Post");

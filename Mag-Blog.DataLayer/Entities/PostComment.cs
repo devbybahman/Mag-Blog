@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,16 +9,24 @@ public class PostComment
 {
     [Key]
     public int Id { get; set; }
+
     public int PostId { get; set; }
+
     public int UserId { get; set; }
+
     [DisplayName("پیام")]
     [Required(ErrorMessage = "{0} اجباری است")]
     public string Text { get; set; }
+
     public DateTime PublishDate { get; set; }
+
     public DateTime? UpdateDate { get; set; }
 
     [ForeignKey("PostId")]
-    public Post Post { get; set; } 
+    [DeleteBehavior(DeleteBehavior.Cascade)]
+    public Post Post { get; set; }
+
     [ForeignKey("UserId")]
+    [DeleteBehavior(DeleteBehavior.NoAction)] // یا DeleteBehavior.Restrict
     public User User { get; set; }
 }

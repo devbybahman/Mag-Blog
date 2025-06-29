@@ -98,8 +98,7 @@ namespace Mag_Blog.DataLayer.Migrations
                         name: "FK_PostComments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

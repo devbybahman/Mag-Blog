@@ -180,7 +180,7 @@ namespace Mag_Blog.DataLayer.Migrations
                     b.HasOne("Mag_Blog.DataLayer.Entities.User", "User")
                         .WithMany("PostComments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Post");
