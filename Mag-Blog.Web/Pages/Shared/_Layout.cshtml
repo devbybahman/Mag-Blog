@@ -29,13 +29,7 @@
 
 <body class="bg-light style-default style-rounded">
 
-    <!-- Preloader -->
-    <div class="loader-mask">
-        <div class="loader">
-            <div></div>
-        </div>
-    </div>
-
+<partial name="_PreloaderPartial"></partial>
     <!-- Bg Overlay -->
     <div class="content-overlay"></div>
 
@@ -293,28 +287,30 @@
 
 
         <!-- Trending Now -->
-        <div class="container">
-            <div class="trending-now">
-                <span class="trending-now__label">
-                    <i class="ui-flash"></i>
-                    خبرهای داغ</span>
-                <div class="newsticker">
-                    <ul class="newsticker__list">
-                        <li class="newsticker__item"><a href="single-post.html" class="newsticker__item-url">گوشی تاشو هواوی میت ایکس در تاریخ مقرر عرضه می‌شود</a></li>
-                        <li class="newsticker__item"><a href="single-post-1.html" class="newsticker__item-url">لنوو Z6 پرو با دوربین چهارگانه و اسنپ‌دراگون ۸۵۵ معرفی شد</a></li>
-                        <li class="newsticker__item"><a href="single-post-3.html" class="newsticker__item-url">سامسونگ مشغول ساخت دو گوشی تاشو جدید است</a></li>
-                    </ul>
-                </div>
-                <div class="newsticker-buttons">
-                    <button class="newsticker-button newsticker-button--next" id="newsticker-button--next" aria-label="previous article"><i class="ui-arrow-left"></i></button>
-                    <button class="newsticker-button newsticker-button--prev" id="newsticker-button--prev" aria-label="next article"><i class="ui-arrow-right"></i></button>
-                </div>
+    <div class="container">
+           
+        <div class="trending-now">
+            <span class="trending-now__label">
+                <i class="ui-flash"></i>
+                خبرهای داغ</span>
+            <div class="newsticker">
+                <ul class="newsticker__list">
+                    <li class="newsticker__item"><a href="single-post.html" class="newsticker__item-url">گوشی تاشو هواوی میت ایکس در تاریخ مقرر عرضه می‌شود</a></li>
+                    <li class="newsticker__item"><a href="single-post-1.html" class="newsticker__item-url">لنوو Z6 پرو با دوربین چهارگانه و اسنپ‌دراگون ۸۵۵ معرفی شد</a></li>
+                    <li class="newsticker__item"><a href="single-post-3.html" class="newsticker__item-url">سامسونگ مشغول ساخت دو گوشی تاشو جدید است</a></li>
+                </ul>
+            </div>
+            <div class="newsticker-buttons">
+                <button class="newsticker-button newsticker-button--next" id="newsticker-button--next" aria-label="previous article"><i class="ui-arrow-left"></i></button>
+                <button class="newsticker-button newsticker-button--prev" id="newsticker-button--prev" aria-label="next article"><i class="ui-arrow-right"></i></button>
             </div>
         </div>
+    </div>
 
         <!-- Featured Posts Grid -->
         <section class="featured-posts-grid">
             <div class="container">
+             @RenderBody()
                 <div class="row row-8">
 
                     <div class="col-lg-6">
@@ -434,7 +430,7 @@
         </section> <!-- end featured posts grid -->
 
         <div class="main-container container pt-24" id="main-container">
-
+    
             <!-- Content -->
             <div class="row">
 
@@ -1966,127 +1962,7 @@
         </div> <!-- end main container -->
 
         <!-- Footer -->
-        <footer class="footer footer--light">
-            <div class="container">
-                <div class="footer__widgets">
-                    <div class="row">
-
-                        <div class="col-lg-3 col-md-6">
-                            <aside class="widget widget-logo">
-                                <a href="index.html">
-                                    <img src="~/img/logo_default_white.png" srcset="img/logo_default_white.png 1x, img/logo_default_white@2x.png 2x" class="logo__img" alt="">
-                                </a>
-                                <p class="copyright">
-
-                                    استفاده از مطالب تاپ‌کالا مگ برای مقاصد غیرتجاری با ذکر نام تاپ‌کالا مگ و لینک به منبع بلامانع است. حقوق این سایت به شرکت نوآوران فن‌آوازه (فروشگاه آنلاین تاپ‌کالا) تعلق دارد.
-
-                                </p>
-                                <div class="socials socials--large socials--rounded mb-24">
-                                    <a href="#" class="social social-facebook" aria-label="facebook"><i class="ui-facebook"></i></a>
-                                    <a href="#" class="social social-twitter" aria-label="twitter"><i class="ui-twitter"></i></a>
-                                    <a href="#" class="social social-google-plus" aria-label="google+"><i class="ui-google"></i></a>
-                                    <a href="#" class="social social-youtube" aria-label="youtube"><i class="ui-youtube"></i></a>
-                                    <a href="#" class="social social-instagram" aria-label="instagram"><i class="ui-instagram"></i></a>
-                                </div>
-                            </aside>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6">
-                            <aside class="widget widget_nav_menu">
-                                <h4 class="widget-title">هشتگ های داغ</h4>
-                                <ul>
-                                    <li><a href="about.html">#تکنولوزی</a></li>
-                                    <li><a href="contact.html">#موبایل</a></li>
-                                    <li><a href="categories.html">#کتاب</a></li>
-                                    <li><a href="shortcodes.html">#هنر</a></li>
-                                    <li><a href="shortcodes.html">#زیبایی</a></li>
-                                    <li><a href="shortcodes.html">#دیجیتال</a></li>
-                                </ul>
-                            </aside>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <aside class="widget widget-popular-posts">
-                                <h4 class="widget-title">محبوب ترین مقالات</h4>
-                                <ul class="post-list-small">
-                                    <li class="post-list-small__item">
-                                        <article class="post-list-small__entry clearfix">
-                                            <div class="post-list-small__img-holder">
-                                                <div class="thumb-container thumb-100">
-                                                    <a href="single-post.html">
-                                                        <img data-src="img/content/thumb/post-8.jpg" src="~/img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="post-list-small__body">
-                                                <h3 class="post-list-small__entry-title">
-                                                    <a href="single-post.html">گوشی تاشو هواوی میت ایکس در تاریخ مقرر عرضه می‌شود</a>
-                                                </h3>
-                                                <ul class="entry__meta">
-                                                    <li class="entry__meta-author">
-                                                        <span>نویسنده:</span>
-                                                        <a href="#">بهرامی راد</a>
-                                                    </li>
-                                                    <li class="entry__meta-date">
-                                                        ۴ اردیبهشت ۱۳۹۸
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <li class="post-list-small__item">
-                                        <article class="post-list-small__entry clearfix">
-                                            <div class="post-list-small__img-holder">
-                                                <div class="thumb-container thumb-100">
-                                                    <a href="single-post.html">
-                                                        <img data-src="img/content/thumb/post-2.jpg" src="~/img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="post-list-small__body">
-                                                <h3 class="post-list-small__entry-title">
-                                                    <a href="single-post.html">نمایشگر وان پلاس ۷ قرار است ما را شگفت‌زده کند!</a>
-                                                </h3>
-                                                <ul class="entry__meta">
-                                                    <li class="entry__meta-author">
-                                                        <span>نویسنده:</span>
-                                                        <a href="#">بهرامی راد</a>
-                                                    </li>
-                                                    <li class="entry__meta-date">
-                                                        ۴ اردیبهشت ۱۳۹۸
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </article>
-                                    </li>
-                                </ul>
-                            </aside>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <aside class="widget widget_mc4wp_form_widget">
-                                <h4 class="widget-title">خبرنامه</h4>
-                                <p class="newsletter__text">
-                                    <i class="ui-email newsletter__icon"></i>
-                                    برای اطلاع از آخرین خبرها مشترک شوید
-                                </p>
-                                <form class="mc4wp-form" method="post">
-                                    <div class="mc4wp-form-fields">
-                                        <div class="form-group">
-                                            <input type="email" name="EMAIL" placeholder="ایمیل" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" class="btn btn-lg btn-color" value="عضویت">
-                                        </div>
-                                    </div>
-                                </form>
-                            </aside>
-                        </div>
-
-                    </div>
-                </div>
-            </div> <!-- end container -->
-        </footer> <!-- end footer -->
+     <partial name="_FooterPartial"/>
 
         <div id="back-to-top">
             <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
@@ -2094,17 +1970,8 @@
 
     </main> <!-- end main-wrapper -->
 
-
-    <!-- jQuery Scripts -->
-    <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/easing.min.js"></script>
-    <script src="~/js/owl-carousel.min.js"></script>
-    <script src="~/js/flickity.pkgd.min.js"></script>
-    <script src="~/js/twitterFetcher_min.js"></script>
-    <script src="~/js/jquery.newsTicker.min.js"></script>
-    <script src="~/js/modernizr.min.js"></script>
-    <script src="~/js/scripts.js"></script>
+<partial name="_jquery-ScriptsPartial"/>
+    
 
 </body>
 
