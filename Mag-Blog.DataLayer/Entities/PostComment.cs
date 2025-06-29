@@ -23,10 +23,8 @@ public class PostComment
     public DateTime? UpdateDate { get; set; }
 
     [ForeignKey("PostId")]
-    [DeleteBehavior(DeleteBehavior.Cascade)]
     public Post Post { get; set; }
 
     [ForeignKey("UserId")]
-    [DeleteBehavior(DeleteBehavior.NoAction)] // یا DeleteBehavior.Restrict
     public User User { get; set; }
 }
