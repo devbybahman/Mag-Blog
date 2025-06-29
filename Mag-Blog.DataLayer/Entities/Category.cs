@@ -19,6 +19,12 @@ public class Category
     [DisplayName("توضیح متا")]
     [Required(ErrorMessage = "{0} اجباری است")]
     public string MetaDescription { get; set; }
+    public DateTime CreationDate { get; set; }
+    public bool IsDeleted { get; set; }
+
+    #region Relations
 
     public ICollection<Post> Posts { get; set; }
+
+    #endregion
 }

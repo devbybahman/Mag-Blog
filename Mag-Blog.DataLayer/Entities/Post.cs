@@ -24,11 +24,16 @@ public class Post
     public string Slug { get; set; }
 
     public int Visited { get; set; }
+    public DateTime CreationDate { get; set; }
+    public bool IsDeleted { get; set; }
 
+    #region Relations
 
     [ForeignKey("UserId")] public User User { get; set; }
     [ForeignKey("CategoryId")] public Category Category { get; set; }
 
 
     public ICollection<PostComment> PostComments { get; set; }
+
+    #endregion
 }

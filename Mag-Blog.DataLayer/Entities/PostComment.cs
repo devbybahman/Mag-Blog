@@ -21,10 +21,16 @@ public class PostComment
     public DateTime PublishDate { get; set; }
 
     public DateTime? UpdateDate { get; set; }
+    public DateTime CreationDate { get; set; }
+    public bool IsDeleted { get; set; }
+
+    #region Relations
 
     [ForeignKey("PostId")]
     public Post Post { get; set; }
-
+ 
     [ForeignKey("UserId")]
     public User User { get; set; }
+
+    #endregion
 }

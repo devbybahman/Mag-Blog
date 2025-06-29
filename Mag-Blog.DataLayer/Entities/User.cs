@@ -18,9 +18,15 @@ public class User
     [Required(ErrorMessage = "{0} اجباری است")]
     public string Password    { get; set; }
     public UserRole Role { get; set; }
+    public DateTime CreationDate { get; set; }
+    public bool IsDeleted { get; set; }
+
+    #region Relations
 
     public ICollection<Post> Posts { get; set; }
     public ICollection<PostComment> PostComments { get; set; }
+
+    #endregion
 }
 
 public enum UserRole
