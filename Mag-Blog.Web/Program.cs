@@ -1,7 +1,12 @@
+using Mag_Blog.DataLayer.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<BlogCobtext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("con")));
 
 var app = builder.Build();
 
