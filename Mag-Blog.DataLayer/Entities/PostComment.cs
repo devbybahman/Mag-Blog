@@ -5,10 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mag_Blog.DataLayer.Entities;
 
-public class PostComment
+public class PostComment:BaseEntity
 {
-    [Key]
-    public int Id { get; set; }
+    
 
     public int PostId { get; set; }
 
@@ -21,8 +20,7 @@ public class PostComment
     public DateTime PublishDate { get; set; }
 
     public DateTime? UpdateDate { get; set; }
-    public DateTime CreationDate { get; set; }
-    public bool IsDeleted { get; set; }
+
 
     #region Relations
 

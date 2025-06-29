@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mag_Blog.DataLayer.Entities;
 
-public class Post
+public class Post:BaseEntity
 {
-    [Key] public int Id { get; set; }
+   
 
     public int UserId { get; set; }
     public int CategoryId { get; set; }
@@ -24,8 +24,7 @@ public class Post
     public string Slug { get; set; }
 
     public int Visited { get; set; }
-    public DateTime CreationDate { get; set; }
-    public bool IsDeleted { get; set; }
+   
 
     #region Relations
 

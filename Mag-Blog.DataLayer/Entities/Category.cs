@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mag_Blog.DataLayer.Entities;
 
-public class Category
+public class Category:BaseEntity
 { 
-   [Key] 
-    public int Id { get; set; }
+   
     [DisplayName("عنوان")]
     [Required(ErrorMessage = "{0} اجباری است")]
     public string Title { get; set; }
@@ -19,8 +18,7 @@ public class Category
     [DisplayName("توضیح متا")]
     [Required(ErrorMessage = "{0} اجباری است")]
     public string MetaDescription { get; set; }
-    public DateTime CreationDate { get; set; }
-    public bool IsDeleted { get; set; }
+  
 
     #region Relations
 
