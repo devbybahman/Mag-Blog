@@ -10,13 +10,18 @@
 <form method="Post" asp-page="Register">
     <h1>@ViewData["Title"]</h1>
     <div>
-        <input type="text" placeholder="نام کاربری" required="" id="username"/>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" type="text" placeholder="نام کاربری" required="" id="username"/>
+  <span asp-validation-for="UserName" style="color: red"></span>
     </div>
     <div>
-        <input type="text" placeholder="نام و نام خانوادگی" />
+         <label asp-for="FullName"></label>
+        <input asp-for="FullName" type="text" placeholder="نام و نام خانوادگی"/>
+          <span asp-validation-for="FullName" style="color: red"></span>
     </div>
-    <div>
-        <input type="password" placeholder="کلمه عبور" required="" id="password"/>
+    <div> <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" placeholder="کلمه عبور" required="" id="password"/>
+           <span asp-validation-for="Password" style="color: red"></span>
     </div> 
    
     <div>
