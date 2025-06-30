@@ -23,7 +23,7 @@ public class UserService:IUserService
         }
 
         var HashPass = Encoder.EncodeToMd5(registerDto.Password);
-        _context.Users.Add(new User(
+        _context.Users.Add(new User()
         {
             UserName = registerDto.UserName,
             FullName = registerDto.FullName,
