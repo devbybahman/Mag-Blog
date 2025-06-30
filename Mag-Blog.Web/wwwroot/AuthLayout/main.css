@@ -1,3 +1,13 @@
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/IRANSans/eot/IRANSansWeb_Bold.eot');
+    src: url('../fonts/IRANSans/eot/IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../fonts/IRANSans/woff2/IRANSansWeb_Bold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../fonts/IRANSans/woff/IRANSansWeb_Bold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/IRANSans/ttf/IRANSansWeb_Bold.ttf') format('truetype');
+}
 /* Reset CSS */
 
 html,
@@ -74,7 +84,7 @@ td {
 body {
     background: #DCDDDF url(https://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
     color: #000;
-    font: 14px Arial;
+    font: 14px IRANSans;
     margin: 0 auto;
     padding: 0;
     position: relative;
@@ -189,7 +199,7 @@ form:after {
 
 #content h1 {
     color: #7E7E7E;
-    font: bold 25px Helvetica, Arial, sans-serif;
+    font: bold 25px IRANSans;
     letter-spacing: -0.05em;
     line-height: 20px;
     margin: 10px 0 30px;
@@ -287,7 +297,7 @@ form:after {
     background: #eae7e7 url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
     border: 1px solid #c8c8c8;
     color: #777;
-    font: 13px Helvetica, Arial, sans-serif;
+    font: 13px IRANSans;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
     width: 80%;
@@ -335,7 +345,7 @@ form:after {
     color: #85592e;
     cursor: pointer;
     float: left;
-    font: bold 15px Helvetica, Arial, sans-serif;
+    font: bold 15px IRANSans;
     height: 35px;
     margin: 20px 0 35px 15px;
     position: relative;

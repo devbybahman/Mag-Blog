@@ -1,0 +1,25 @@
+﻿@page
+@using Mag_Blog.Web.Pages.Shared._AuthLayout
+@model Mag_Blog.Web.Pages.Auth.Register
+
+@{
+    Layout = "Shared/_AuthLayout/_AuthLayout";
+}
+
+<form method="Post" asp-page="Register">
+    <h1>@ViewData["Title"]</h1>
+    <div>
+        <input type="text" placeholder="نام کاربری" required="" id="username"/>
+    </div>
+    <div>
+        <input type="password" placeholder="کلمه عبور" required="" id="password"/>
+    </div> 
+    <div>
+        <input type="password" placeholder="تکرار کلمه عبور" required="" id="password"/>
+    </div>
+    <div>
+        <input type="submit" value="@ViewData["Title"]"/>
+        <a href="#">فراموشی کلمه عبور</a>
+        <a asp-page="Login">ورود</a>
+    </div>
+</form>
