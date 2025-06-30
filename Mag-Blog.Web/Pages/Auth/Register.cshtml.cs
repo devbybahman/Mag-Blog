@@ -17,14 +17,13 @@ public class Register : PageModel
     #region ViewModel
 
     [DisplayName("نام کاربری")]
-    [Required(ErrorMessage = "{0} راوارد کنید")]
+    [Required(ErrorMessage = "{0} را وارد کنید")]
     public string UserName { get; set; }
-    [DisplayName("نام و نام خانوادگی")]
-    [Required(ErrorMessage = "{0} راوارد کنید")]
+    [DisplayName("نام کامل")]
+    [Required(ErrorMessage = "{0} را وارد کنید")]
     public string FullName { get; set; }
     [DisplayName("رمزعبور")]
-    
-    [Required(ErrorMessage = "{0} راوارد کنید")]
+    [Required(ErrorMessage = "{0} را وارد کنید")]
     [MinLength(6,ErrorMessage = "{0} باید بیشتر از 5 کاراکتر باشد")]
     public string Password { get; set; }
 
@@ -43,14 +42,14 @@ public class Register : PageModel
     {
         var r = _userService.Register(new UserRegisterDTO
         {
-            UserName = this.UserName,
-            FullName = this.FullName,
-            Password = this.Password,
+            UserName = UserName,
+            FullName = FullName,
+            Password = Password
 
         });
         if (r.Status==OperationResultStatus.Error)
         {
-            ModelState.AddModelError(UserName,r.Message);
+            ModelState.AddModelError("UserName",r.Message);
             return Page();
         }
 

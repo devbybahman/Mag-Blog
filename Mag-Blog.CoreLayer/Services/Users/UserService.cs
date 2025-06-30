@@ -18,9 +18,8 @@ public class UserService:IUserService
     {
         var SameUser = _context.Users.Any(p => p.UserName == registerDto.UserName);
         if (SameUser)
-        {
             return OperationResult.Error("این نام کاربری مجاز نیست");
-        }
+        
 
         var HashPass = Encoder.EncodeToMd5(registerDto.Password);
         _context.Users.Add(new User()
