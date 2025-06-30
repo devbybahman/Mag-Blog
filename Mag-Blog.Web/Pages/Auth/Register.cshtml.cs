@@ -12,6 +12,8 @@ namespace Mag_Blog.Web.Pages.Auth;
 [BindProperties]
 public class Register : PageModel
 {
+    private readonly IUserService _userService;
+    
     #region ViewModel
 
     [DisplayName("نام کاربری")]
@@ -27,9 +29,32 @@ public class Register : PageModel
     public string Password { get; set; }
 
     #endregion
+
+    public Register(IUserService userService)
+    {
+        _userService = userService;
+    }
     public void OnGet()
     {
       
+    }
+
+    public IActionResult OnPost()
+    {
+        var r = _userService.Register(new UserRegisterDTO
+        {
+            UserName = this.UserName,
+            FullName = this.FullName,
+            Password = this.Password,
+
+        });
+        if (r.Status==OperationResultStatus.Error)
+        {
+            ModelState.AddModelError(UserName,r.Message);
+            return Page();
+        }
+
+        return RedirectToPage("Login");
     }
 
 }
