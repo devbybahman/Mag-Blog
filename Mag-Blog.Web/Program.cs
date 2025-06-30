@@ -1,3 +1,4 @@
+using Mag_Blog.CoreLayer.Services.Users;
 using Mag_Blog.DataLayer.Context;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<BlogCobtext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("con")));
-
+builder.Services.AddScoped<IUserService,UserService>();
 
 
 var app = builder.Build();
