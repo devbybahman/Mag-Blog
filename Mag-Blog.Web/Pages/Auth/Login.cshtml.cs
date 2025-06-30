@@ -6,6 +6,6 @@ public class Login : PageModel
 {
     public void OnGet()
     {
-        ViewData["Title"] = "ورود";
+      
     }
 }
