@@ -50,7 +50,7 @@ public class Login : PageModel
         });
         if (r.Status==OperationResultStatus.NotFound)
         {
-            ModelState.AddModelError("Password",r.Message);
+            ModelState.AddModelError("Password","نام کاربری یا رمزعبور اشتباه است");
             return Page();
         }
 
