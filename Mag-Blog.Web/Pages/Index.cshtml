@@ -2,7 +2,30 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var success = TempData["success"];
 }
+@if (success != null)
+{
+    <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        با موفقیت وارد شدید
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="بستن"></button>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            var alertBox = document.getElementById("success-alert");
+            if (alertBox) {
+                // Bootstrap 5 animation-friendly hide
+                alertBox.classList.remove("show");
+                alertBox.classList.add("hide");
+                setTimeout(function () {
+                    alertBox.remove();
+                }, 500);
+            }
+        }, 3000); 
+    </script>
+}
+
 
 <div class="container">
            

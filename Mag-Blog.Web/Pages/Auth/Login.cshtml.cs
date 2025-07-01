@@ -54,6 +54,7 @@ public class Login : PageModel
             return Page();
         }
 
+        TempData["success"] = true;
         return RedirectToPage("../Index");
 
     }
