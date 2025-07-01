@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Mag_Blog.Web.Pages.Auth;
-
+[ValidateAntiForgeryToken]
 [BindProperties]
 public class Register : PageModel
 {
