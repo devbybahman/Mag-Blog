@@ -11,11 +11,13 @@
     <h1>@ViewData["Title"]</h1>
     <div>
         <input asp-for="UserName" type="text" placeholder="نام کاربری" />
-         <span asp-validation-for="UserName"></span>
+        <br>
+         <span asp-validation-for="UserName" style="color: red"></span>
     </div>
     <div>
         <input asp-for="Password" type="password" placeholder="کلمه عبور" />
-        <span asp-validation-for="Password"></span>
+           <br>
+        <span asp-validation-for="Password" style="color: red"></span>
     </div>
     <div>
         <input type="submit" value="@ViewData["Title"]"/>
