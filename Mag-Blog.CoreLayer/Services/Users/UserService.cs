@@ -34,4 +34,16 @@ public class UserService:IUserService
         _context.SaveChanges();
         return OperationResult.Success();
     }
+
+    public OperationResult Login(UserLoginDTO LoginDto)
+    {
+        var PassHashed = Encoder.EncodeToMd5(LoginDto.Password);
+        var UserFounded = _context.Users.Any(p => p.UserName == LoginDto.UserName && p.Password==PassHashed);
+        if (!UserFounded)
+        {
+            return OperationResult.NotFound();
+        }
+
+        return OperationResult.Success();
+    }
 }
