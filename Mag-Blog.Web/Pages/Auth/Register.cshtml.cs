@@ -40,6 +40,10 @@ public class Register : PageModel
 
     public IActionResult OnPost()
     {
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
         var r = _userService.Register(new UserRegisterDTO
         {
             UserName = UserName,
