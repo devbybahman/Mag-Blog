@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using CodeYad_Blog.CoreLayer.Utilities;
+using Mag_Blog.CoreLayer.DTOs.Users;
 using Mag_Blog.CoreLayer.Services.Users;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Mag_Blog.Web.Pages.Auth;
 
 [ValidateAntiForgeryToken]
+[BindProperties]
 public class Login : PageModel
 {
     private readonly IUserService _userService;
@@ -31,5 +34,27 @@ public class Login : PageModel
     public void OnGet()
     {
       
+    }
+
+    public IActionResult OnPost()
+    {
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
+
+        var r = _userService.Login(new UserLoginDTO()
+        {
+        UserName = this.UserName,
+        Password = this.Password
+        });
+        if (r.Status==OperationResultStatus.NotFound)
+        {
+            ModelState.AddModelError("Password",r.Message);
+            return Page();
+        }
+
+        return RedirectToPage("../Index");
+
     }
 }
