@@ -58,7 +58,6 @@ public class Login : PageModel
         }
         List<Claim> claims = new List<Claim>()
         {
-            new Claim("test", "test"),
             new Claim(ClaimTypes.NameIdentifier, r.UserId.ToString()),
             new Claim(ClaimTypes.Name, r.FullName),
             new Claim(ClaimTypes.Role,r.Role.ToString())
