@@ -60,11 +60,16 @@ public class Login : PageModel
         {
             new Claim("test", "test"),
             new Claim(ClaimTypes.NameIdentifier, r.UserId.ToString()),
-            new Claim(ClaimTypes.Name, r.FullName)
+            new Claim(ClaimTypes.Name, r.FullName),
+            new Claim(ClaimTypes.Role,r.Role.ToString())
         };
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         var claimPrincipal = new ClaimsPrincipal(identity);
-        HttpContext.SignInAsync(claimPrincipal);
+        var propertis = new AuthenticationProperties()
+        {
+            IsPersistent = true
+        };
+        HttpContext.SignInAsync(claimPrincipal,propertis);
         TempData["success"] = true;
         return RedirectToPage("../Index");
 
