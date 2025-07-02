@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Users;
 using Mag_Blog.CoreLayer.Services.Users;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -48,12 +51,20 @@ public class Login : PageModel
         UserName = this.UserName,
         Password = this.Password
         });
-        if (r.Status==OperationResultStatus.NotFound)
+        if (r==null)
         {
             ModelState.AddModelError("Password","نام کاربری یا رمزعبور اشتباه است");
             return Page();
         }
-
+        List<Claim> claims = new List<Claim>()
+        {
+            new Claim("test", "test"),
+            new Claim(ClaimTypes.NameIdentifier, r.UserId.ToString()),
+            new Claim(ClaimTypes.Name, r.FullName)
+        };
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var claimPrincipal = new ClaimsPrincipal(identity);
+        HttpContext.SignInAsync(claimPrincipal);
         TempData["success"] = true;
         return RedirectToPage("../Index");
 
