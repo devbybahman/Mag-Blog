@@ -1,4 +1,5 @@
 ﻿using CodeYad_Blog.CoreLayer.Utilities;
+using Mag_Blog.CoreLayer.DTOs;
 using Mag_Blog.CoreLayer.DTOs.Users;
 using Mag_Blog.DataLayer.Context;
 using Mag_Blog.DataLayer.Entities;
@@ -35,15 +36,23 @@ public class UserService:IUserService
         return OperationResult.Success();
     }
 
-    public OperationResult Login(UserLoginDTO LoginDto)
+    public UserDTO Login(UserLoginDTO LoginDto)
     {
         var PassHashed = Encoder.EncodeToMd5(LoginDto.Password);
-        var UserFounded = _context.Users.Any(p => p.UserName == LoginDto.UserName && p.Password==PassHashed);
-        if (!UserFounded)
+        var user = _context.Users.FirstOrDefault(p => p.UserName == LoginDto.UserName && p.Password==PassHashed);
+        if (user==null)
         {
-            return OperationResult.NotFound();
+            return null;
         }
-
-        return OperationResult.Success();
+        UserDTO userDto = new UserDTO()
+        {
+            Password = user.Password,
+            UserName = user.UserName,
+            UserId = user.Id,
+            RegisterDate = user.CreationDate,
+            FullName = user.FullName,
+            Role = user.Role
+        };
+        return userDto;
     }
 }
