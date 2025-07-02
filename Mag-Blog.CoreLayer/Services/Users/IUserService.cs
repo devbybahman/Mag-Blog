@@ -6,5 +6,5 @@ namespace Mag_Blog.CoreLayer.Services.Users;
 public interface IUserService
 {
     OperationResult Register(UserRegisterDTO registerDto);
-    OperationResult Login(UserLoginDTO LoginDto);
+    UserDTO Login(UserLoginDTO LoginDto);
 }
