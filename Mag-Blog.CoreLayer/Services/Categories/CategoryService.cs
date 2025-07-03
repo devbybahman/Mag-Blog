@@ -1,5 +1,6 @@
 ﻿using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Categories;
+using Mag_Blog.CoreLayer.Mappers;
 using Mag_Blog.DataLayer.Context;
 using Mag_Blog.DataLayer.Entities;
 
@@ -48,12 +49,18 @@ public class CategoryService:ICategoryService
 
     public List<CategoryDTO> GatAllCategories()
     {
-        return _Context.Categories.Where(p=>p.IsDeleted==false).Select(categories =>Mappers.CategoryMapper.Map(categories)).ToList();
+        return _Context.Categories.Where(p=>p.IsDeleted==false).Select(categories =>CategoryMapper.Map(categories)).ToList();
     }
 
     public CategoryDTO GetCategoryBy(int id)
     {
-        throw new NotImplementedException();
+        var r = _Context.Categories.FirstOrDefault(p => p.Id == id);
+        if (r==null)
+        {
+            return null;
+        }
+
+        return CategoryMapper.Map(r);
     }
 
     public CategoryDTO GetCategoryBy(string slug)
