@@ -31,6 +31,19 @@ public class CategoryService:ICategoryService
 
     public OperationResult EditCategory(EditCategoryDTO editCategoryDto)
     {
+        var r = _Context.Categories.FirstOrDefault(p => p.Id == editCategoryDto.Id);
+        if (r==null)
+        {
+            return OperationResult.NotFound();
+        }
+
+        r.Title = editCategoryDto.Title;
+        r.MetaDescription = editCategoryDto.MetaDescription;
+        r.MetaTag = editCategoryDto.MetaTag;
+        r.Slug = editCategoryDto.Slug;
+        _Context.Categories.Update(r);
+        _Context.SaveChanges();
+        return  OperationResult.Success();
     }
 
     public List<CategoryDTO> GatAllCategories()
