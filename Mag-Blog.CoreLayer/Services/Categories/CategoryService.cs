@@ -48,17 +48,7 @@ public class CategoryService:ICategoryService
 
     public List<CategoryDTO> GatAllCategories()
     {
-        return _Context.Categories.Where(p=>p.IsDeleted==false)
-            .Select(categories =>new CategoryDTO()
-        {
-        MetaDescription = categories.MetaDescription,
-        MetaTag = categories.MetaTag,
-        Slug = categories.Slug,
-        ParentId = categories.ParentId,
-        Id = categories.Id,
-        Title = categories.Title
-
-        }).ToList();
+        return _Context.Categories.Where(p=>p.IsDeleted==false).Select(categories =>Mappers.CategoryMapper.Map(categories)).ToList();
     }
 
     public CategoryDTO GetCategoryBy(int id)
