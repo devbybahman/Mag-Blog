@@ -42,7 +42,7 @@ public class CategoryService:ICategoryService
         r.MetaDescription = editCategoryDto.MetaDescription;
         r.MetaTag = editCategoryDto.MetaTag;
         r.Slug = editCategoryDto.Slug;
-        _Context.Categories.Update(r);
+      //  _Context.Categories.Update(r);
         _Context.SaveChanges();
         return  OperationResult.Success();
     }
