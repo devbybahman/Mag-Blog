@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.web\\areas\\admin\\controllers\\baseadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|solutionrelative:mag-blog.web\\areas\\admin\\controllers\\baseadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.web\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|solutionrelative:mag-blog.web\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.web\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|solutionrelative:mag-blog.web\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}|Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.datalayer\\mag-blog.datalayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}|Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj|solutionrelative:mag-blog.datalayer\\mag-blog.datalayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}|Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.datalayer\\migrations\\20250629145431_create-baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}|Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj|solutionrelative:mag-blog.datalayer\\migrations\\20250629145431_create-baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.web\\mag-blog.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{87AD2DED-F985-46F6-9E08-F26A680A9ADC}|Mag-Blog.Web\\Mag-Blog.Web.csproj|solutionrelative:mag-blog.web\\mag-blog.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}|Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj|c:\\users\\sadat system\\desktop\\mag-blog\\mag-blog.datalayer\\mag-blog.datalayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{AE8D8302-AB6A-45B7-8E7F-CD9E7826CE7E}|Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj|solutionrelative:mag-blog.datalayer\\mag-blog.datalayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +74,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Mag-Blog.Web\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Mag-Blog.Web\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T04:11:10.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BaseAdminController.cs",
+              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Areas\\Admin\\Controllers\\BaseAdminController.cs",
+              "RelativeDocumentMoniker": "Mag-Blog.Web\\Areas\\Admin\\Controllers\\BaseAdminController.cs",
+              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Areas\\Admin\\Controllers\\BaseAdminController.cs",
+              "RelativeToolTip": "Mag-Blog.Web\\Areas\\Admin\\Controllers\\BaseAdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T04:10:49.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Mag-Blog.Web\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Mag-Blog.Web\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T04:10:22.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "20250629145431_Create-BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Migrations\\20250629145431_Create-BaseEntity.cs",
               "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Migrations\\20250629145431_Create-BaseEntity.cs",
@@ -75,19 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20250629140836_Repair-init.cs",
-              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
-              "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
-              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
-              "RelativeToolTip": "Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:08:36.763Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "20250629135653_init.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Migrations\\20250629135653_init.cs",
               "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Migrations\\20250629135653_init.cs",
@@ -99,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Entities\\User.cs",
@@ -111,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "PostComment.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Entities\\PostComment.cs",
               "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Entities\\PostComment.cs",
@@ -123,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\appsettings.json",
               "RelativeDocumentMoniker": "Mag-Blog.Web\\appsettings.json",
@@ -135,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Program.cs",
               "RelativeDocumentMoniker": "Mag-Blog.Web\\Program.cs",
@@ -147,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Entities\\Category.cs",
               "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Entities\\Category.cs",
@@ -159,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Mag-Blog.Web.csproj",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.Web\\Mag-Blog.Web.csproj",
               "RelativeDocumentMoniker": "Mag-Blog.Web\\Mag-Blog.Web.csproj",
@@ -171,7 +210,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Mag-Blog.DataLayer.csproj",
+              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
+              "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
+              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
+              "RelativeToolTip": "Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-29T11:40:24.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20250629140836_Repair-init.cs",
+              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
+              "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
+              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
+              "RelativeToolTip": "Mag-Blog.DataLayer\\Migrations\\20250629140836_Repair-init.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T14:08:36.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "BlogCobtext.cs",
               "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Context\\BlogCobtext.cs",
               "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Context\\BlogCobtext.cs",
@@ -180,18 +244,6 @@
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwBMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-29T13:32:18.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Mag-Blog.DataLayer.csproj",
-              "DocumentMoniker": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
-              "RelativeDocumentMoniker": "Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
-              "ToolTip": "C:\\Users\\sadat system\\Desktop\\Mag-Blog\\Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
-              "RelativeToolTip": "Mag-Blog.DataLayer\\Mag-Blog.DataLayer.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-06-29T11:40:24.465Z"
             }
           ]
         }
