@@ -43,6 +43,7 @@ public class CategoryService:ICategoryService
         r.MetaTag = editCategoryDto.MetaTag;
         r.Slug = editCategoryDto.Slug;
       //  _Context.Categories.Update(r);
+      //because we used of FirstOrDefault 
         _Context.SaveChanges();
         return  OperationResult.Success();
     }
