@@ -65,6 +65,12 @@ public class CategoryService:ICategoryService
 
     public CategoryDTO GetCategoryBy(string slug)
     {
-        throw new NotImplementedException();
+        var r = _Context.Categories.FirstOrDefault(p => p.Slug==slug);
+        if (r==null)
+        {
+            return null;
+        }
+
+        return CategoryMapper.Map(r);
     }
 }
