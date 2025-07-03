@@ -1,4 +1,6 @@
-﻿namespace Mag_Blog.CoreLayer.Services.Categories;
+﻿using Mag_Blog.CoreLayer.DTOs.Categories;
+
+namespace Mag_Blog.CoreLayer.Services.Categories;
 
 public interface ICategoryService
 {
