@@ -111,4 +111,9 @@
       <_ContentIncludedByDefault Remove="wwwroot\img\Thumbs.db" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Areas\Admin" />
+      <Folder Include="Areas\UserPanel" />
+    </ItemGroup>
+
 </Project>
