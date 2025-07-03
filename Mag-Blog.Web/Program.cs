@@ -1,3 +1,4 @@
+using Mag_Blog.CoreLayer.Services.Categories;
 using Mag_Blog.CoreLayer.Services.Users;
 using Mag_Blog.DataLayer.Context;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BlogCobtext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("con")));
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddAuthentication(option =>
 {
     option.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
