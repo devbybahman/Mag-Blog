@@ -18,7 +18,8 @@ public class Category:BaseEntity
     [DisplayName("توضیح متا")]
     [Required(ErrorMessage = "{0} اجباری است")]
     public string MetaDescription { get; set; }
-  
+
+    public int? ParentId { get; set; }
 
     #region Relations
 
