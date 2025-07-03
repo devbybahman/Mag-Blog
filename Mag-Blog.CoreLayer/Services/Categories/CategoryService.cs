@@ -48,8 +48,7 @@ public class CategoryService:ICategoryService
 
     public List<CategoryDTO> GatAllCategories()
     {
-        return _Context.Categories
-            .Where(p=>p.IsDeleted==false)
+        return _Context.Categories.Where(p=>p.IsDeleted==false)
             .Select(categories =>new CategoryDTO()
         {
         MetaDescription = categories.MetaDescription,
