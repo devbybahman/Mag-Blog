@@ -25,7 +25,7 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Add()
+        public IActionResult Add(int id)
         {
             
         }

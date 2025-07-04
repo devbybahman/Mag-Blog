@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "دسته بندی ها";
     var counter = 1;
+    Layout = "_AdminLayout";
 }
 
 <section class="content-header">
@@ -18,17 +19,19 @@
     </ol>
 </section>
 <section class="content">
-    <a asp-area="Admin" asp-controller="Category" asp-action="Add">افزودن دسته بندی جدید</a>
+    <a class="btn btn-success " style="margin-bottom: 5px" asp-area="Admin" asp-controller="Category" asp-action="Add">افزودن دسته بندی جدید</a>
     <div class="box box-primary">
-        <div class="box box-body">
+        <div class=" box-body">
             <table class="table table-bordered table-hover">
-                <thead>
-                <tr>#</tr>
-                <tr>عنوان</tr>
-                <tr>زیرگروه </tr>
-                <tr>عملیات</tr>
-                </thead>
-                <tbody>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>عنوان</th>
+                    <th>زیرگروه</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach (var cat in Model)
                 {
                     <tr>
