@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mag_Blog.Web.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseAdminController
     {
 
         private readonly ICategoryService _service;
@@ -13,7 +13,7 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
         {
             _service = service;
         }
-        
+        //list of Category 
         public ActionResult Index()
         {
 
