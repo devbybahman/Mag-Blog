@@ -1,18 +1,21 @@
-﻿
-
-@{
-    Layout = null;
+﻿@{
+    ViewData["Title"] = "افزودن دسته بندی";
+    var counter = 1;
+    Layout = "_AdminLayout";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<section class="content-header">
+    <h1>
+        @ViewData["Title"]
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a asp-action="Index" asp-controller="Category" asp-area="Admin" ><i class="fa fa-dashboard"></i> خانه</a>
+        </li>
+     
+        <li class="active">@ViewData["Title"]</li>
+    </ol>
+</section>
+<section class="content">
+    
+</section>
