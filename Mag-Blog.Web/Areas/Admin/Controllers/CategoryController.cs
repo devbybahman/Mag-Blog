@@ -33,14 +33,8 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
             {
                 return View(viewModel);
             }
-            _service.CreateCategory(new CreateCategoryDTO()
-            {
-                     Title = viewModel.Title,
-                    Slug = viewModel.Slug,
-                   MetaDescription = viewModel.MetaDescription,
-                     MetaTag = viewModel.MetaTag
-            });
-        
+
+            _service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
             return RedirectToAction("Index");
         }
     }
