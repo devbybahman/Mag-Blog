@@ -27,7 +27,7 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Add(int id)
         {
-            
+
         }
     }
 }
