@@ -1,3 +1,4 @@
+using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Categories;
 using Mag_Blog.CoreLayer.Services.Categories;
 using Mag_Blog.Web.Areas.Admin.Models.Categories;
@@ -26,9 +27,21 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Add(CreateCategoryViewModel cat)
+        public IActionResult Add(CreateCategoryViewModel viewModel)
         {
-
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            _service.CreateCategory(new CreateCategoryDTO()
+            {
+                     Title = viewModel.Title,
+                    Slug = viewModel.Slug,
+                   MetaDescription = viewModel.MetaDescription,
+                     MetaTag = viewModel.MetaTag
+            });
+        
+            return RedirectToAction("Index");
         }
     }
 }
