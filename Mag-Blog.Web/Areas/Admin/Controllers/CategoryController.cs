@@ -20,5 +20,14 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
             return View(_service.GatAllCategories());
         }
 
+        public IActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add()
+        {
+            
+        }
     }
 }
