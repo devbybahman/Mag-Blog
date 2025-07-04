@@ -1,5 +1,6 @@
 using Mag_Blog.CoreLayer.DTOs.Categories;
 using Mag_Blog.CoreLayer.Services.Categories;
+using Mag_Blog.Web.Areas.Admin.Models.Categories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mag_Blog.Web.Areas.Admin.Controllers
@@ -25,7 +26,7 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Add(int id)
+        public IActionResult Add(CreateCategoryViewModel cat)
         {
 
         }

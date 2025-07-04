@@ -1,6 +1,6 @@
-﻿@{
+﻿@model Mag_Blog.Web.Areas.Admin.Models.Categories.CreateCategoryViewModel
+@{
     ViewData["Title"] = "افزودن دسته بندی";
-    var counter = 1;
     Layout = "_AdminLayout";
 }
 
@@ -10,12 +10,46 @@
     </h1>
     <ol class="breadcrumb">
         <li>
-            <a asp-action="Index" asp-controller="Category" asp-area="Admin" ><i class="fa fa-dashboard"></i> خانه</a>
+            <a asp-action="Index" asp-controller="Category" asp-area="Admin"><i class="fa fa-dashboard"></i> خانه</a>
         </li>
-     
+
         <li class="active">@ViewData["Title"]</li>
     </ol>
 </section>
 <section class="content">
-    
+    <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Category" asp-action="Add">
+        <div class="box-body row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input type="text" asp-for="Title" class="form-control">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Slug"></label>
+                    <input type="text" asp-for="Slug" class="form-control">
+                    <span asp-validation-for="Slug" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="MetaTag"></label>
+                    <input type="text" asp-for="MetaTag" class="form-control">
+                    <span asp-validation-for="MetaTag" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="MetaDescription"></label>
+                    <textarea asp-for="MetaDescription" class="form-control"></textarea>
+                    <span asp-validation-for="MetaDescription" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="submit">ایجاد</button>
+        </div>
+    </form>
 </section>
