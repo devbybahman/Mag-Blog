@@ -38,5 +38,10 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
             _service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
     }
 }
