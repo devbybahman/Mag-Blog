@@ -41,7 +41,28 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            var category = _service.GetCategoryBy(id);
+            if (category==null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var viewmodel = new EditCategotyViewModel()
+            {
+                 Slug = category.Slug,
+                     Title = category.Title,
+                      MetaDescription = category.MetaDescription,
+                   MetaTag = category.MetaTag,
+                   Id = category.Id
+            };
+            
+            return View(viewmodel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, EditCategotyViewModel viewModel)
+        {
+            
         }
     }
 }
