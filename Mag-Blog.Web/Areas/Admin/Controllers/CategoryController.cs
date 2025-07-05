@@ -60,7 +60,7 @@ public class CategoryController : BaseAdminController
         var r = _service.EditCategory(EditCategotyViewModel.Map(edit));
         if (r.Status == OperationResultStatus.NotFound)
         {
-            ModelState.AddModelError("Slug", r.Message);
+            ModelState.AddModelError(nameof(edit.Slug), r.Message);
             return View();
         }
 
