@@ -26,7 +26,8 @@ namespace Mag_Blog.Web.Areas.Admin.Controllers
         {
             return View();
         }
-        [HttpPost]
+          [HttpPost]
+          [ValidateAntiForgeryToken]
         public IActionResult Add(CreateCategoryViewModel viewModel)
         {
             if (!ModelState.IsValid)
