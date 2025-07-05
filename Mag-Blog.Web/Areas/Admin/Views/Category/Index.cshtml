@@ -39,7 +39,7 @@
                         <td>@cat.Title</td>
                         <td>@cat.ParentId</td>
                         <td>
-                            <a asp-area="Admin" asp-controller="Category" asp-action="" class="btn btn-info btn-sm">ویرایش</a>
+                            <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="@cat.Id" class="btn btn-info btn-sm">ویرایش</a>
                             <a asp-area="Admin" asp-controller="Category" asp-action="" class="btn btn-danger btn-sm">حذف</a>
                         </td>
                     </tr>

@@ -1,6 +1,6 @@
 ﻿@model Mag_Blog.Web.Areas.Admin.Models.Categories.EditCategotyViewModel
 @{
-    ViewData["Title"] = "افزودن دسته بندی";
+    ViewData["Title"] = "ویرایش";
     Layout = "_AdminLayout";
 }
 
@@ -10,14 +10,15 @@
     </h1>
     <ol class="breadcrumb">
         <li>
-            <a asp-action="Index" asp-controller="Category" asp-area="Admin"><i class="fa fa-dashboard"></i> خانه</a>
+            <a asp-action="Index" asp-controller="Home" asp-area="Admin"><i class="fa fa-dashboard"></i> خانه</a>
+            <a asp-action="Index" asp-controller="Category" asp-area="Admin"><i class="fa fa-dashboard"></i> داشبورد</a>
         </li>
 
         <li class="active">@ViewData["Title"]</li>
     </ol>
 </section>
 <section class="content">
-    <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Category" asp-action="Add">
+    <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Category" asp-action="Edit">
         <div class="box-body row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -49,7 +50,7 @@
             </div>
         </div>
         <div class="box-footer">
-            <button class="btn btn-success" type="submit">ایجاد</button>
+            <button class="btn btn-success" type="submit">ذخیره</button>
         </div>
     </form>
 </section>

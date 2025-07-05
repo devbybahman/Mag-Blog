@@ -4,65 +4,73 @@ using Mag_Blog.CoreLayer.Services.Categories;
 using Mag_Blog.Web.Areas.Admin.Models.Categories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mag_Blog.Web.Areas.Admin.Controllers
+namespace Mag_Blog.Web.Areas.Admin.Controllers;
+
+public class CategoryController : BaseAdminController
 {
-    public class CategoryController : BaseAdminController
+    private readonly ICategoryService _service;
+
+    public CategoryController(ICategoryService service)
     {
+        _service = service;
+    }
 
-        private readonly ICategoryService _service;
+    //list of Category 
+    public ActionResult Index()
+    {
+        return View(_service.GatAllCategories());
+    }
 
-        public CategoryController(ICategoryService service)
+    public IActionResult Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Add(CreateCategoryViewModel viewModel)
+    {
+        if (!ModelState.IsValid) return View(viewModel);
+
+        _service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit(int id)
+    {
+        var category = _service.GetCategoryBy(id);
+        if (category == null) return RedirectToAction("Index");
+
+        var viewmodel = new EditCategotyViewModel
         {
-            _service = service;
-        }
-        //list of Category 
-        public ActionResult Index()
-        {
+            Slug = category.Slug,
+            Title = category.Title,
+            MetaDescription = category.MetaDescription,
+            MetaTag = category.MetaTag,
+            Id = category.Id
+        };
 
-            return View(_service.GatAllCategories());
-        }
+        return View(viewmodel);
+    }
 
-        public IActionResult Add()
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Edit(int id, EditCategotyViewModel edit)
+    {
+        var r = _service.EditCategory(new EditCategoryDTO
         {
+            Slug = edit.Slug,
+            Title = edit.Title,
+            MetaDescription = edit.MetaDescription,
+            MetaTag = edit.MetaTag,
+            Id = edit.Id
+        });
+        if (r.Status == OperationResultStatus.NotFound)
+        {
+            ModelState.AddModelError("Slug", r.Message);
             return View();
         }
-          [HttpPost]
-          [ValidateAntiForgeryToken]
-        public IActionResult Add(CreateCategoryViewModel viewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(viewModel);
-            }
 
-            _service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Edit(int id)
-        {
-            var category = _service.GetCategoryBy(id);
-            if (category==null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            var viewmodel = new EditCategotyViewModel()
-            {
-                 Slug = category.Slug,
-                     Title = category.Title,
-                      MetaDescription = category.MetaDescription,
-                   MetaTag = category.MetaTag,
-                   Id = category.Id
-            };
-            
-            return View(viewmodel);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, EditCategotyViewModel viewModel)
-        {
-            
-        }
+        return RedirectToAction("Index");
     }
 }
