@@ -57,14 +57,7 @@ public class CategoryController : BaseAdminController
     [ValidateAntiForgeryToken]
     public IActionResult Edit(int id, EditCategotyViewModel edit)
     {
-        var r = _service.EditCategory(new EditCategoryDTO
-        {
-            Slug = edit.Slug,
-            Title = edit.Title,
-            MetaDescription = edit.MetaDescription,
-            MetaTag = edit.MetaTag,
-            Id = edit.Id
-        });
+        var r = _service.EditCategory(EditCategotyViewModel.Map(edit));
         if (r.Status == OperationResultStatus.NotFound)
         {
             ModelState.AddModelError("Slug", r.Message);
