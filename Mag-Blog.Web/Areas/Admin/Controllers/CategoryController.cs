@@ -21,17 +21,18 @@ public class CategoryController : BaseAdminController
         return View(_service.GatAllCategories());
     }
 
-    public IActionResult Add()
+    [Route("/admin/category/add/{parentid?}")]
+    public IActionResult Add(int? parentid)
     {
         return View();
     }
 
-    [HttpPost]
+    [HttpPost("/admin/category/add/{parentid?}")]
     [ValidateAntiForgeryToken]
-    public IActionResult Add(CreateCategoryViewModel viewModel)
+    public IActionResult Add(int? parentid,CreateCategoryViewModel viewModel)
     {
         if (!ModelState.IsValid) return View(viewModel);
-
+        viewModel.ParentId = parentid;
         var r=_service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
         if (r.Status != OperationResultStatus.Success)
         {

@@ -18,6 +18,7 @@
 </section>
 <section class="content">
     <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Category" asp-action="Add">
+        <input type="hidden" asp-for="ParentId">
         <div class="box-body row">
             <div class="col-md-6">
                 <div class="form-group">
