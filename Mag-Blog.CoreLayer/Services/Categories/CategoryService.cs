@@ -17,6 +17,9 @@ public class CategoryService:ICategoryService
 
     public OperationResult CreateCategory(CreateCategoryDTO createCategoryDto)
     {
+        if (IsSlugExist(createCategoryDto.Slug))
+        {return OperationResult.Error("این slug از قبل وجود دارد");
+        }
         _Context.Categories.Add(new Category()
 
         {
@@ -37,7 +40,12 @@ public class CategoryService:ICategoryService
         {
             return OperationResult.NotFound();
         }
-
+        if (editCategoryDto.Slug.ToSlug()!=r.Slug)
+        {
+            if (IsSlugExist(editCategoryDto.Slug))
+            {return OperationResult.Error("این slug از قبل وجود دارد");
+            }
+        }
         r.Title = editCategoryDto.Title;
         r.MetaDescription = editCategoryDto.MetaDescription;
         r.MetaTag = editCategoryDto.MetaTag;
@@ -77,6 +85,6 @@ public class CategoryService:ICategoryService
 
     public bool IsSlugExist(string slug)
     {
-        return _Context.Categories.Any(p => p.Slug == slug);
+        return _Context.Categories.Any(p => p.Slug == slug.ToSlug());
     }
 }
