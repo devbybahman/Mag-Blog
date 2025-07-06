@@ -25,7 +25,8 @@ public class CreateCategoryViewModel
             Title = viewModel.Title,
             Slug = viewModel.Slug,
             MetaDescription = viewModel.MetaDescription,
-            MetaTag = viewModel.MetaTag
+            MetaTag = viewModel.MetaTag,
+            ParentId = viewModel.ParentId
         };
     }
 }
