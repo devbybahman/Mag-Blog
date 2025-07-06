@@ -74,4 +74,9 @@ public class CategoryService:ICategoryService
 
         return CategoryMapper.Map(r);
     }
+
+    public bool IsSlugExist(string slug)
+    {
+        return _Context.Categories.Any(p => p.Slug == slug);
+    }
 }
