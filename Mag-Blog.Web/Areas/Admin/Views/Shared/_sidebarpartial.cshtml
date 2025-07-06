@@ -1,4 +1,8 @@
-﻿<aside class="main-sidebar">
+﻿@{
+    var selected = ViewData["selected"]?.ToString()?.ToLower();
+}
+
+<aside class="main-sidebar">
 <!-- sidebar: style can be found in sidebar.less -->
 <section class="sidebar">
 <!-- Sidebar user panel -->
@@ -23,10 +27,10 @@
         </li>
     </ul>
 </li>
- <li>
+ <li class="@(selected=="index"?"active":null)">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index"><i class="fa fa-circle-o"></i> صفحه اصلی </a>
         </li>
-<li>
+ <li class="@(selected=="category"?"active":null)">
     <a asp-area="Admin" asp-controller="Category" asp-action="Index">
         <i class="fa fa-th"></i> <span>دسته بندی ها </span>
  
