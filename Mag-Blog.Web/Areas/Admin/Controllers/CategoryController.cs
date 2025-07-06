@@ -32,7 +32,12 @@ public class CategoryController : BaseAdminController
     {
         if (!ModelState.IsValid) return View(viewModel);
 
-        _service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
+        var r=_service.CreateCategory(CreateCategoryViewModel.MapViewmodel(viewModel));
+        if (r.Status != OperationResultStatus.Success)
+        {
+            ModelState.AddModelError(nameof(viewModel.Slug), r.Message);
+            return View();
+        }
         return RedirectToAction("Index");
     }
 
@@ -58,7 +63,7 @@ public class CategoryController : BaseAdminController
     public IActionResult Edit(int id, EditCategotyViewModel edit)
     {
         var r = _service.EditCategory(EditCategotyViewModel.Map(edit));
-        if (r.Status == OperationResultStatus.NotFound)
+        if (r.Status != OperationResultStatus.Success)
         {
             ModelState.AddModelError(nameof(edit.Slug), r.Message);
             return View();
