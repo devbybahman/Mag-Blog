@@ -10,5 +10,6 @@ public interface ICategoryService
     List<CategoryDTO> GatAllCategories();
     CategoryDTO GetCategoryBy(int id);
     CategoryDTO GetCategoryBy(string slug);
+    bool IsSlugExist(string slug);
 
 }
