@@ -38,8 +38,7 @@ public class UserService:IUserService
 
     public UserDTO Login(UserLoginDTO LoginDto)
     {
-        var PassHashed = Encoder.HashPassword(LoginDto.Password);
-        var user = _context.Users.FirstOrDefault(p => p.UserName == LoginDto.UserName && p.Password==PassHashed);
+        var user = _context.Users.FirstOrDefault(p => p.UserName == LoginDto.UserName && Encoder.VerifyPassword(p.Password,Encoder.HashPassword(LoginDto.Password)));
         if (user==null)
         {
             return null;
