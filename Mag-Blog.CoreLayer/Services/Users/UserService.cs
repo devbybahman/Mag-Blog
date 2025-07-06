@@ -22,7 +22,7 @@ public class UserService:IUserService
             return OperationResult.Error("این نام کاربری مجاز نیست");
         
 
-        var HashPass = Encoder.EncodeToMd5(registerDto.Password);
+        var HashPass = Encoder.HashPassword(registerDto.Password);
         _context.Users.Add(new User()
         {
             UserName = registerDto.UserName,
@@ -38,7 +38,7 @@ public class UserService:IUserService
 
     public UserDTO Login(UserLoginDTO LoginDto)
     {
-        var PassHashed = Encoder.EncodeToMd5(LoginDto.Password);
+        var PassHashed = Encoder.HashPassword(LoginDto.Password);
         var user = _context.Users.FirstOrDefault(p => p.UserName == LoginDto.UserName && p.Password==PassHashed);
         if (user==null)
         {
