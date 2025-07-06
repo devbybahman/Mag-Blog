@@ -21,7 +21,7 @@ public class CategoryService:ICategoryService
 
         {
             Title = createCategoryDto.Title,
-            Slug = createCategoryDto.Slug,
+            Slug = createCategoryDto.Slug.ToSlug(),
             MetaTag = createCategoryDto.MetaTag,
             MetaDescription = createCategoryDto.MetaDescription,
             ParentId = createCategoryDto.ParentId
@@ -41,7 +41,7 @@ public class CategoryService:ICategoryService
         r.Title = editCategoryDto.Title;
         r.MetaDescription = editCategoryDto.MetaDescription;
         r.MetaTag = editCategoryDto.MetaTag;
-        r.Slug = editCategoryDto.Slug;
+        r.Slug = editCategoryDto.Slug.ToSlug();
       //  _Context.Categories.Update(r);
       //because we used of FirstOrDefault 
         _Context.SaveChanges();
