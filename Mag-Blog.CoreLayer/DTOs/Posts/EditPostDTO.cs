@@ -3,7 +3,6 @@
 public class EditPostDTO
 {
     public int PostId { get; set; }
-    public int UserId { get; set; }
     public int CategoryId { get; set; }
     
     public string Title { get; set; }
