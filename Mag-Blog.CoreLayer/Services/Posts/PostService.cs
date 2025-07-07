@@ -33,10 +33,7 @@ public class PostService : IPostService
     public OperationResult EditPost(EditPostDTO command)
     {
         var r = _context.Posts.FirstOrDefault(p => p.Id == command.PostId);
-        if (r==null)
-        {
-            return OperationResult.NotFound();
-        }
+        if (r == null) return OperationResult.NotFound();
 
         r.Description = command.Description;
         r.Title = command.Title;
@@ -48,7 +45,19 @@ public class PostService : IPostService
 
     public PostDto GetPostById(int id)
     {
-        throw new NotImplementedException();
+        var r = _context.Posts.FirstOrDefault(p => p.Id == id);
+        if (r == null) return null;
+
+        return new PostDto
+        {
+            Title = r.Title,
+            Description = r.Description,
+            UserId = r.UserId,
+            Slug = r.Slug,
+            CategoryId = r.CategoryId,
+            CreationDate = r.CreationDate,
+            Visited = r.Visited
+        };
     }
 
     public bool IsSlugExist(string slug)
