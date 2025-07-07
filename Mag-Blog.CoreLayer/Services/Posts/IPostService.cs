@@ -1,5 +1,6 @@
 ﻿using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Categories;
+using Mag_Blog.CoreLayer.DTOs.Posts;
 
 namespace Mag_Blog.CoreLayer.Services.Posts;
 
