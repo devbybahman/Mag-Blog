@@ -1,5 +1,6 @@
 ﻿using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Posts;
+using Mag_Blog.CoreLayer.Mappers;
 using Mag_Blog.DataLayer.Context;
 using Mag_Blog.DataLayer.Entities;
 
@@ -56,7 +57,10 @@ public class PostService : IPostService
             Slug = r.Slug,
             CategoryId = r.CategoryId,
             CreationDate = r.CreationDate,
-            Visited = r.Visited
+            Visited = r.Visited,
+            PostId = r.Id,
+            ImageName = r.ImageName,
+            Category = CategoryMapper.Map(r.Category)
         };
     }
 
