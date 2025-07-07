@@ -23,6 +23,7 @@ public class Post:BaseEntity
     [Required(ErrorMessage = "{0} اجباری است")]
     public string Slug { get; set; }
 
+    public string ImageName { get; set; }
     public int Visited { get; set; }
    
 
