@@ -13,26 +13,37 @@ public class PostService : IPostService
     {
         _context = context;
     }
+
     public OperationResult CreatePost(CreatePostDTO command)
     {
-        _context.Posts.Add(new Post()
+        _context.Posts.Add(new Post
         {
             Title = command.Title,
-             IsDeleted = false,
+            IsDeleted = false,
             Description = command.Description,
             Slug = command.Slug.ToSlug(),
-         CategoryId   = command.CategoryId,
-         UserId = command.UserId,
-         Visited = 0
+            CategoryId = command.CategoryId,
+            UserId = command.UserId,
+            Visited = 0
         });
         _context.SaveChanges();
         return OperationResult.Success();
-
     }
 
     public OperationResult EditPost(EditPostDTO command)
     {
-        throw new NotImplementedException();
+        var r = _context.Posts.FirstOrDefault(p => p.Id == command.PostId);
+        if (r==null)
+        {
+            return OperationResult.NotFound();
+        }
+
+        r.Description = command.Description;
+        r.Title = command.Title;
+        r.Slug = command.Slug.ToSlug();
+        r.CategoryId = command.CategoryId;
+        _context.SaveChanges();
+        return OperationResult.Success();
     }
 
     public PostDto GetPostById(int id)
