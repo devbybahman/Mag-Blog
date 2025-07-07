@@ -64,6 +64,11 @@ public class PostService : IPostService
         };
     }
 
+    public PostFilterDto GetPostByFilter(int pageid)
+    {
+        
+    }
+
     public bool IsSlugExist(string slug)
     {
         return _context.Posts.Any(p => p.Slug == slug.ToSlug());
