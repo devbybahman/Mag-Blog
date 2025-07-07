@@ -64,10 +64,35 @@ public class PostService : IPostService
         };
     }
 
-    public PostFilterDto GetPostByFilter(int pageid)
+    public PostFilterDto GetPostByFilter(int pageid, string title, string categorySlug, int take)
     {
+        var result = _context.Posts.OrderByDescending(p => p.CreationDate).AsQueryable();
+        if (!string.IsNullOrWhiteSpace(title)) result = result.Where(p => p.Title.Contains(title));
+
+        if (!string.IsNullOrWhiteSpace(categorySlug)) result = result.Where(p => p.Slug == categorySlug);
+
+        var skip = (pageid - 1) * take;
+        var PageCount = result.Count() / take;
+        return new PostFilterDto
+        {
+            Posts = result.Skip(skip).Take(take).Select(post => new PostDto
+            {
+                Title = post.Title,
+                Description = post.Description,
+                UserId = post.UserId,
+                Slug = post.Slug,
+                CategoryId = post.CategoryId,
+                CreationDate = post.CreationDate,
+                Visited = post.Visited,
+                PostId = post.Id,
+                ImageName = post.ImageName,
+                Category = CategoryMapper.Map(post.Category)
+            }).ToList(),
+            PageCount = PageCount
+        };
         
     }
+
 
     public bool IsSlugExist(string slug)
     {
