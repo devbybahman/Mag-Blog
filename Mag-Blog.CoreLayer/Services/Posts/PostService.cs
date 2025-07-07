@@ -62,6 +62,6 @@ public class PostService : IPostService
 
     public bool IsSlugExist(string slug)
     {
-        throw new NotImplementedException();
+        return _context.Posts.Any(p => p.Slug == slug.ToSlug());
     }
 }
