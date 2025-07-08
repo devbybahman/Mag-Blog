@@ -1,6 +1,7 @@
 ﻿using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Posts;
 using Mag_Blog.CoreLayer.Mappers;
+using Mag_Blog.CoreLayer.Services.FileManager;
 using Mag_Blog.DataLayer.Context;
 using Mag_Blog.DataLayer.Entities;
 
@@ -9,14 +10,21 @@ namespace Mag_Blog.CoreLayer.Services.Posts;
 public class PostService : IPostService
 {
     private readonly BlogCobtext _context;
+    private readonly IFileManager _file;
 
-    public PostService(BlogCobtext context)
+    public PostService(BlogCobtext context, IFileManager file)
     {
         _context = context;
+        _file = file;
     }
 
     public OperationResult CreatePost(CreatePostDTO command)
     {
+        if (command.ImageFile==null)
+        {
+            return OperationResult.Error();
+        }
+        
         _context.Posts.Add(new Post
         {
             Title = command.Title,
@@ -25,7 +33,8 @@ public class PostService : IPostService
             Slug = command.Slug.ToSlug(),
             CategoryId = command.CategoryId,
             UserId = command.UserId,
-            Visited = 0
+            Visited = 0,
+            ImageName = _file.SaveFile(command.ImageFile,Directories.PostImage)
         });
         _context.SaveChanges();
         return OperationResult.Success();
