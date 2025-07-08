@@ -43,8 +43,49 @@ public class PostController : BaseAdminController
         });
         if (r.Status != OperationResultStatus.Success)
         {
-            ModelState.AddModelError(nameof(viewModel.Slug),r.Message);
+            ModelState.AddModelError(nameof(viewModel.Slug), r.Message);
             return View();
+        }
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit(int id)
+    {
+        var posts = _service.GetPostById(id);
+        if (posts == null) return RedirectToAction("Index");
+
+        var r = new EditPostViewModel
+        {
+            Title = posts.Title,
+            Description = posts.Description,
+            CategoryId = posts.CategoryId,
+            Slug = posts.Slug,
+            SubCategoryId = posts.SubCategoryId,
+        };
+
+        return View(r);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Edit(int id, EditPostViewModel viewModel)
+    {
+        if (!ModelState.IsValid) return View(viewModel);
+        var r = _service.EditPost(new EditPostDTO
+        {
+            Title = viewModel.Title,
+            Description = viewModel.Description,
+            Slug = viewModel.Slug,
+            CategoryId = viewModel.CategoryId,
+            SubCategoryId = viewModel.SubCategoryId,
+            ImageFile = viewModel.ImageFile,
+            PostId = id
+        });
+        if (r.Status != OperationResultStatus.Success)
+        {
+            ModelState.AddModelError("", r.Message);
+            return View(viewModel);
         }
 
         return RedirectToAction("Index");
