@@ -61,6 +61,12 @@ public class CategoryService:ICategoryService
         return _Context.Categories.Where(p=>p.IsDeleted==false).Select(categories =>CategoryMapper.Map(categories)).ToList();
     }
 
+    public List<CategoryDTO> GatChildCategories(int parentId)
+    {
+        return _Context.Categories.Where(p=>p.ParentId==parentId).Where(p=>p.IsDeleted==false).Select(categories =>CategoryMapper.Map(categories)).ToList();
+
+    }
+
     public CategoryDTO GetCategoryBy(int id)
     {
         var r = _Context.Categories.FirstOrDefault(p => p.Id == id);
