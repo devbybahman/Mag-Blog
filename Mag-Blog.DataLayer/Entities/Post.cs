@@ -10,6 +10,7 @@ public class Post:BaseEntity
 
     public int UserId { get; set; }
     public int CategoryId { get; set; }
+    public int? SubCategoryId { get; set; }
 
     [DisplayName("عنوان")]
     [Required(ErrorMessage = "{0} اجباری است")]
@@ -29,8 +30,12 @@ public class Post:BaseEntity
 
     #region Relations
 
-    [ForeignKey("UserId")] public User User { get; set; }
-    [ForeignKey("CategoryId")] public Category Category { get; set; }
+    [ForeignKey("UserId")] 
+    public User User { get; set; }
+    [ForeignKey("CategoryId")] 
+    public Category Category { get; set; }
+    [ForeignKey("SubCategoryId")]
+    public Category SubCategory { get; set; }
 
 
     public ICollection<PostComment> PostComments { get; set; }

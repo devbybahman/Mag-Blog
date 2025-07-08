@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mag_Blog.DataLayer.Entities;
 
@@ -22,7 +23,9 @@ public class Category:BaseEntity
     public int? ParentId { get; set; }
 
     #region Relations
-
+    [InverseProperty("SubCategory")]
+    public ICollection<Post> SubPosts { get; set; }
+    [InverseProperty("Category")]
     public ICollection<Post> Posts { get; set; }
 
     #endregion
