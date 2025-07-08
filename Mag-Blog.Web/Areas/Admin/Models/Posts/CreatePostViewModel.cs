@@ -18,6 +18,7 @@ public class CreatePostViewModel
     public string Title { get; set; }
     [Display(Name = "توضیحات")]
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage ="لطفا {0} را وارد کنید ")]
+    [UIHint("CKEditor4")]
     public string Description { get; set; }
     [Display(Name = "slug")]
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage ="لطفا {0} را وارد کنید ")]
