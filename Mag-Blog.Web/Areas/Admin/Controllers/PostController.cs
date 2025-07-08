@@ -2,7 +2,7 @@ using Mag_Blog.CoreLayer.Services.Posts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mag_Blog.Web.Areas.Admin.Controllers
-{[Area("Admin")]
+{
     public class PostController : BaseAdminController
     {
         private readonly IPostService _service;
