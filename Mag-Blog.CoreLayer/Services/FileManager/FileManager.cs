@@ -24,6 +24,6 @@ public class FileManager:IFileManager
         using var stram = new FileStream(fullpath, FileMode.Create);
         file.CopyTo(stram);
 
-        return fullpath;
+        return filename;
     }
 }

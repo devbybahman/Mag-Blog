@@ -22,7 +22,7 @@
     </ol>
 </section>
 <section class="content">
-    <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Post" asp-action="Add">
+    <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Post" asp-action="Add" enctype="multipart/form-data">
         <div class="box-body row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -67,11 +67,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="ImageFile"></label>
-                    <input type="file" asp-for="ImageFile" class="form-control">
-                    <span asp-validation-for="ImageFile" class="text-danger"></span>
-                </div>
+                @Html.EditorFor(p=>p.ImageFile)
             </div>
         </div>
         <div class="box-footer">
