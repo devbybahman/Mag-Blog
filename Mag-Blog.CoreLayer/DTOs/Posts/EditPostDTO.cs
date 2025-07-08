@@ -1,4 +1,6 @@
-﻿namespace Mag_Blog.CoreLayer.DTOs.Posts;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Mag_Blog.CoreLayer.DTOs.Posts;
 
 public class EditPostDTO
 {
@@ -10,5 +12,6 @@ public class EditPostDTO
     public string Description { get; set; }
 
     public string Slug { get; set; }
+    public IFormFile ImageFile { get; set; }
 
 }
