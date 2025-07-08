@@ -4,6 +4,7 @@ using Mag_Blog.CoreLayer.Mappers;
 using Mag_Blog.CoreLayer.Services.FileManager;
 using Mag_Blog.DataLayer.Context;
 using Mag_Blog.DataLayer.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mag_Blog.CoreLayer.Services.Posts;
 
@@ -75,7 +76,7 @@ public class PostService : IPostService
 
     public PostFilterDto GetPostByFilter(int pageid, string title, string categorySlug, int take)
     {
-        var result = _context.Posts.OrderByDescending(p => p.CreationDate).AsQueryable();
+        var result = _context.Posts.Include(p=>p.Category).Include(p=>p.SubCategory).OrderByDescending(p => p.CreationDate).AsQueryable();
         if (!string.IsNullOrWhiteSpace(title)) result = result.Where(p => p.Title.Contains(title));
 
         if (!string.IsNullOrWhiteSpace(categorySlug)) result = result.Where(p => p.Slug == categorySlug);
