@@ -21,4 +21,5 @@ public class EditPostViewModel
     public string Slug { get; set; }
     [Display(Name = "عکس")]
     public IFormFile ImageFile { get; set; }
+    
 }
