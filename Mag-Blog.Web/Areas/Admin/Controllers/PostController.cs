@@ -1,21 +1,50 @@
+using CodeYad_Blog.CoreLayer.Utilities;
+using Mag_Blog.CoreLayer.DTOs.Posts;
 using Mag_Blog.CoreLayer.Services.Posts;
+using Mag_Blog.Web.Areas.Admin.Models.Posts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mag_Blog.Web.Areas.Admin.Controllers
+namespace Mag_Blog.Web.Areas.Admin.Controllers;
+
+public class PostController : BaseAdminController
 {
-    public class PostController : BaseAdminController
+    private readonly IPostService _service;
+
+    public PostController(IPostService service)
     {
-        private readonly IPostService _service;
+        _service = service;
+    }
 
-        public PostController(IPostService service)
+    public ActionResult Index(int pageid = 1, string title = "", string categorySlug = "")
+    {
+        var r = _service.GetPostByFilter(pageid, title, categorySlug, 20);
+        return View(r);
+    }
+
+    public IActionResult Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Add(CreatePostViewModel viewModel)
+    {
+        if (!ModelState.IsValid) return View(viewModel);
+        var r = _service.CreatePost(new CreatePostDTO
         {
-            _service = service;
-        }
-        public ActionResult Index(int pageid=1,string title="",string categorySlug="")
+            Title = viewModel.Title,
+            Description = viewModel.Description,
+            CategoryId = viewModel.CategoryId,
+            Slug = viewModel.Slug,
+            ImageFile = viewModel.ImageFile,
+            SubCategoryId = viewModel.SubCategoryId
+        });
+        if (r.Status != OperationResultStatus.Success)
         {
-            var r = _service.GetPostByFilter(pageid, title, categorySlug, 20);
-            return View(r);
+            ModelState.AddModelError(nameof(viewModel.Slug),r.Message);
         }
 
+        return RedirectToAction("Index");
     }
 }
