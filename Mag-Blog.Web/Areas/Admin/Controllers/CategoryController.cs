@@ -72,4 +72,10 @@ public class CategoryController : BaseAdminController
 
         return RedirectToAction("Index");
     }
+
+    public JsonResult GetChildCategories(int parentid)
+    {
+        var r = _service.GatChildCategories(parentid);
+        return new JsonResult(r);
+    }
 }
