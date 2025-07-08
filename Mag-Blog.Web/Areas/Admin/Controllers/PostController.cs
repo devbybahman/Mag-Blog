@@ -38,11 +38,13 @@ public class PostController : BaseAdminController
             CategoryId = viewModel.CategoryId,
             Slug = viewModel.Slug,
             ImageFile = viewModel.ImageFile,
-            SubCategoryId = viewModel.SubCategoryId
+            SubCategoryId = viewModel.SubCategoryId,
+            UserId = User.GetUserId()
         });
         if (r.Status != OperationResultStatus.Success)
         {
             ModelState.AddModelError(nameof(viewModel.Slug),r.Message);
+            return View();
         }
 
         return RedirectToAction("Index");
