@@ -1,8 +1,11 @@
-﻿@model Mag_Blog.Web.Areas.Admin.Models.Posts.CreatePostViewModel
+﻿@using Mag_Blog.CoreLayer.Services.Categories
+@model Mag_Blog.Web.Areas.Admin.Models.Posts.CreatePostViewModel
+@inject ICategoryService _categoryService;
 @{
     ViewData["Title"] = "افزودن پست";
     Layout = "_AdminLayout";
     ViewData["selected"] = "post";
+    var categories = _categoryService.GatAllCategories();
 }
 
 <section class="content-header">
@@ -22,7 +25,7 @@
     <form class="box box-danger" method="Post" asp-area="Admin" asp-controller="Post" asp-action="Add">
         <div class="box-body row">
             <div class="col-md-6">
-                <div class="form-group">        
+                <div class="form-group">
                     <label asp-for="Title"></label>
                     <input type="text" asp-for="Title" class="form-control">
                     <span asp-validation-for="Title" class="text-danger"></span>
@@ -38,17 +41,24 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Description"></label>
-                     @Html.EditorFor(m => m.Description)
+                    @Html.EditorFor(m => m.Description)
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="CategoryId"></label>
-                    <select asp-for="CategoryId" class="form-control"></select>
+                    <select asp-for="CategoryId" class="form-control">
+                        <option value="null">انتخاب کنید</option>
+                        @foreach (var item in categories.Where(p => p.ParentId == null))
+                        {
+                            <option value="@item.Id">@item.Title</option>
+
+                        }
+                    </select>
                     <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
-            </div>  
+            </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="SubCategoryId"></label>
@@ -69,3 +79,25 @@
         </div>
     </form>
 </section>
+
+@section Scripts
+{
+    <script >
+    $("#CategoryId").change(function (){
+        var value=$(this).val();
+        console.log(value);
+        $.ajax({
+        url:"/admin/category/GetChildCategories?parentid="+value,
+        type:"get"
+        }).done(function (date){
+              $("#SubCategoryId").html(`<option value="null">انتخاب کنید</option>`)
+            for (var i in date)
+            {
+                var cat=date[i];
+                $("#SubCategoryId").append(`<option value="${cat.id}">${cat.title}</option>`);
+            }
+            
+        });
+        })
+    </script>
+}
