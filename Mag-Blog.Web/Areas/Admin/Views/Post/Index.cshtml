@@ -1,0 +1,67 @@
+@model Mag_Blog.CoreLayer.DTOs.Posts.PostFilterDto
+
+@{
+    ViewData["Title"] = "پست ها";
+    ViewData["selected"] = "post";
+    var counter = 1;
+    Layout = "_AdminLayout";
+}
+
+<section class="content-header">
+    <h1>
+        @ViewData["Title"]
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a asp-action="Index" asp-controller="Category" asp-area="Admin"><i class="fa fa-dashboard"></i> خانه</a>
+        </li>
+
+        <li class="active">@ViewData["Title"]</li>
+    </ol>
+</section>
+<section class="content">
+    <a class="btn btn-success " style="margin-bottom: 5px" asp-area="Admin" asp-controller="Category" asp-action="Add">افزودن پست جدید</a>
+    <div class="box box-primary">
+        <div class=" box-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>عکس</th>
+                    <th>عنوان</th>
+                    <th>slug</th>
+                    <th>گروه</th>
+                    <th>عملیات</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                @foreach (var post in Model.Posts)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>
+                            <img src="/img/@post.ImageName" alt="">
+                        </td>
+                        <td>@post.Title</td>
+                        <td>@post.Slug</td>
+                        <td>@post.Category.Title</td>
+           
+           
+                        <td>
+                            <a asp-area="Admin" asp-controller="Post" asp-action="" asp-route-id="@post.PostId" class="btn btn-info btn-sm">ویرایش</a>
+                        </td>
+                    </tr>
+                    counter += 1;
+                }
+                
+
+                </tbody>
+                <?php
+                echo ;
+                ?>
+            </table>
+        </div>
+    </div>
+
+</section>          

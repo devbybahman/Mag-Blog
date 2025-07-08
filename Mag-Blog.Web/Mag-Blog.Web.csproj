@@ -113,6 +113,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Areas\Admin\Views\Post" />
       <Folder Include="Areas\Admin\Views\Shared\" />
       <Folder Include="Areas\UserPanel" />
     </ItemGroup>
