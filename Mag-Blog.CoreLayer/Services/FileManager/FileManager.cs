@@ -26,4 +26,13 @@ public class FileManager:IFileManager
 
         return filename;
     }
+
+    public void DeleteFile(string filename, string path)
+    {
+        var filepath = Path.Combine(Directory.GetCurrentDirectory(), path,filename);
+        if (File.Exists(filepath))
+        {
+            File.Delete(filepath);
+        }
+    }
 }
