@@ -21,27 +21,19 @@ public class PostService : IPostService
 
     public OperationResult CreatePost(CreatePostDTO command)
     {
-        if (command.ImageFile==null)
-        {
-            return OperationResult.Error();
-        }
+        if (command.ImageFile == null) return OperationResult.Error();
 
-        var r = new Post()
+        _context.Posts.Add(new Post
         {
             Title = command.Title,
-             IsDeleted = false,
-             Description = command.Description,
+            IsDeleted = false,
+            Description = command.Description,
             Slug = command.Slug.ToSlug(),
-             CategoryId = command.CategoryId,
-             UserId = command.UserId,
-             Visited = 0,
-        };
-        if (command.ImageFile!=null)
-        {
-            r.ImageName = _file.SaveFile(command.ImageFile, Directories.PostImage);
-        }
+            CategoryId = command.CategoryId,
+            UserId = command.UserId,
+            Visited = 0
+        });
 
-        _context.Posts.Add(r);
         _context.SaveChanges();
         return OperationResult.Success();
     }
@@ -56,10 +48,7 @@ public class PostService : IPostService
         r.Slug = command.Slug.ToSlug();
         r.CategoryId = command.CategoryId;
 
-        if (command.ImageFile!=null)
-        {
-            r.ImageName = _file.SaveFile(command.ImageFile, Directories.PostImage);
-        }
+        if (command.ImageFile != null) r.ImageName = _file.SaveFile(command.ImageFile, Directories.PostImage);
         _context.SaveChanges();
         return OperationResult.Success();
     }
@@ -82,13 +71,14 @@ public class PostService : IPostService
             ImageName = r.ImageName,
             Category = CategoryMapper.Map(r.Category),
             SubCategoryId = r.SubCategoryId,
-            SubCategory =r.SubCategoryId == null ? null:CategoryMapper.Map(r.SubCategory)
+            SubCategory = r.SubCategoryId == null ? null : CategoryMapper.Map(r.SubCategory)
         };
     }
 
     public PostFilterDto GetPostByFilter(int pageid, string title, string categorySlug, int take)
     {
-        var result = _context.Posts.Include(p=>p.Category).Include(p=>p.SubCategory).OrderByDescending(p => p.CreationDate).AsQueryable();
+        var result = _context.Posts.Include(p => p.Category).Include(p => p.SubCategory)
+            .OrderByDescending(p => p.CreationDate).AsQueryable();
         if (!string.IsNullOrWhiteSpace(title)) result = result.Where(p => p.Title.Contains(title));
 
         if (!string.IsNullOrWhiteSpace(categorySlug)) result = result.Where(p => p.Slug == categorySlug);
@@ -112,7 +102,6 @@ public class PostService : IPostService
             }).ToList(),
             PageCount = PageCount
         };
-        
     }
 
 
