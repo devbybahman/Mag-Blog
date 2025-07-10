@@ -70,7 +70,9 @@ public class PostService : IPostService
             Visited = r.Visited,
             PostId = r.Id,
             ImageName = r.ImageName,
-            Category = CategoryMapper.Map(r.Category)
+            Category = CategoryMapper.Map(r.Category),
+            SubCategoryId = r.SubCategoryId,
+            SubCategory =r.SubCategoryId == null ? null:CategoryMapper.Map(r.SubCategory)
         };
     }
 
