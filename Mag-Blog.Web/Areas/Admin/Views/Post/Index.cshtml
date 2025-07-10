@@ -1,3 +1,4 @@
+@using CodeYad_Blog.CoreLayer.Utilities
 @model Mag_Blog.CoreLayer.DTOs.Posts.PostFilterDto
 
 @{
@@ -41,7 +42,7 @@
                     <tr>
                         <td>@counter</td>
                         <td>
-                           <img src="@post.ImageName" alt="تصویر" width="100">
+                           <img style="max-width: 150px" src="@Directories.GetPostImage(post.ImageName)" alt="تصویر" width="100">
                         </td>
                         <td>@post.Title</td>
                         <td>@post.Slug</td>
