@@ -25,18 +25,23 @@ public class PostService : IPostService
         {
             return OperationResult.Error();
         }
-        
-        _context.Posts.Add(new Post
+
+        var r = new Post()
         {
             Title = command.Title,
-            IsDeleted = false,
-            Description = command.Description,
+             IsDeleted = false,
+             Description = command.Description,
             Slug = command.Slug.ToSlug(),
-            CategoryId = command.CategoryId,
-            UserId = command.UserId,
-            Visited = 0,
-            ImageName = _file.SaveFile(command.ImageFile,Directories.PostImage)
-        });
+             CategoryId = command.CategoryId,
+             UserId = command.UserId,
+             Visited = 0,
+        };
+        if (command.ImageFile!=null)
+        {
+            r.ImageName = _file.SaveFile(command.ImageFile, Directories.PostImage);
+        }
+
+        _context.Posts.Add(r);
         _context.SaveChanges();
         return OperationResult.Success();
     }
@@ -50,6 +55,11 @@ public class PostService : IPostService
         r.Title = command.Title;
         r.Slug = command.Slug.ToSlug();
         r.CategoryId = command.CategoryId;
+
+        if (command.ImageFile!=null)
+        {
+            r.ImageName = _file.SaveFile(command.ImageFile, Directories.PostImage);
+        }
         _context.SaveChanges();
         return OperationResult.Success();
     }
