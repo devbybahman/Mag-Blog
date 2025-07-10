@@ -20,6 +20,6 @@ public class EditPostViewModel
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage ="لطفا {0} را وارد کنید ")]
     public string Slug { get; set; }
     [Display(Name = "عکس")]
-    public IFormFile ImageFile { get; set; }
+    public IFormFile? ImageFile { get; set; }
     
 }
