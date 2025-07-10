@@ -56,7 +56,7 @@ public class PostController : BaseAdminController
         var posts = _service.GetPostById(id);
         if (posts == null) return RedirectToAction("Index");
 
-        var r = new EditPostViewModel
+        var r = new EditPostViewModel()
         {
             Title = posts.Title,
             Description = posts.Description,

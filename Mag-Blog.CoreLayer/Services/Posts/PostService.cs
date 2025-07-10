@@ -30,6 +30,7 @@ public class PostService : IPostService
             Description = command.Description,
             Slug = command.Slug.ToSlug(),
             CategoryId = command.CategoryId,
+            SubCategoryId = command.SubCategoryId,
             UserId = command.UserId,
             Visited = 0,
             ImageName = _file.SaveFile(command.ImageFile,Directories.PostImage)

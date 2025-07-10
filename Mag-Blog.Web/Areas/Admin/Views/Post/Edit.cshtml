@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label asp-for="CategoryId"></label>
                     <select asp-for="CategoryId" class="form-control">
-                        <option value="null">انتخاب کنید</option>
+                        <option value="">انتخاب کنید</option>
                         @foreach (var item in categories.Where(p => p.ParentId == null))
                         {
                             <option value="@item.Id">@item.Title</option>
@@ -63,8 +63,8 @@
                 <div class="form-group">
                     <label asp-for="SubCategoryId"></label>
                     <select asp-for="SubCategoryId" class="form-control">
-                              <option value="null">انتخاب کنید</option>
-                                                @foreach (var item in categories.Where(p => p.ParentId == Model.CategoryId))
+                              <option value="">انتخاب کنید</option>
+                       @foreach (var item in categories.Where(p => p.ParentId == Model.CategoryId))
                                                 {
                                                     <option value="@item.Id">@item.Title</option>
                         
@@ -93,7 +93,7 @@
         url:"/admin/category/GetChildCategories?parentid="+value,
         type:"get"
         }).done(function (date){
-              $("#SubCategoryId").html(`<option value="null">انتخاب کنید</option>`)
+              $("#SubCategoryId").html(`<option value="">انتخاب کنید</option>`)
             for (var i in date)
             {
                 var cat=date[i];
