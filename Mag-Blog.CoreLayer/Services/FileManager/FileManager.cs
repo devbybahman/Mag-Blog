@@ -6,24 +6,20 @@ public class FileManager:IFileManager
 {
     public string SaveFile(IFormFile file, string savepath)
     {
-        if (file==null)
+        if (file == null)
+            throw new Exception("File Is Null");
+
+        var fileName = $"{Guid.NewGuid()}{file.FileName}";
+
+        var folderPath = Path.Combine(Directory.GetCurrentDirectory(),savepath.Replace("/", "\\"));
+        if (!Directory.Exists(folderPath))
         {
-            throw new Exception("file is null!");
+            Directory.CreateDirectory(folderPath);
         }
+        var fullPath = Path.Combine(folderPath, fileName);
 
-        var filename = $"{Guid.NewGuid()}{file.FileName}";
-        var folderpath = Path.Combine(Directory.GetCurrentDirectory(), savepath.Replace("/","\\"));
-        if (!Directory.Exists(folderpath))
-        {
-            Directory.CreateDirectory(folderpath);
-        }
-
-        var fullpath = Path.Combine(folderpath,filename);
-
-
-        using var stram = new FileStream(fullpath, FileMode.Create);
+        using var stram = new FileStream(fullPath, FileMode.Create);
         file.CopyTo(stram);
-
-        return filename;
+        return fileName;
     }
 }
