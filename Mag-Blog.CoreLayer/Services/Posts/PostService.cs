@@ -43,6 +43,7 @@ public class PostService : IPostService
     public OperationResult EditPost(EditPostDTO command)
     {
         var r = _context.Posts.FirstOrDefault(p => p.Id == command.PostId);
+        var oldimage = r.ImageName;
         if (r == null) return OperationResult.NotFound();
 
         r.Description = command.Description;
@@ -52,6 +53,10 @@ public class PostService : IPostService
 
         if (command.ImageFile != null) r.ImageName = _file.SaveFile(command.ImageFile, Directories.PostImage);
         _context.SaveChanges();
+        if (command.ImageFile != null)
+        {
+            _file.DeleteFile(oldimage,Directories.PostImage);
+        }
         return OperationResult.Success();
     }
 
