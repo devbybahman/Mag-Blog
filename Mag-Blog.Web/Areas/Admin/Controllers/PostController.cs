@@ -1,5 +1,6 @@
 using CodeYad_Blog.CoreLayer.Utilities;
 using Mag_Blog.CoreLayer.DTOs.Posts;
+using Mag_Blog.CoreLayer.Mappers;
 using Mag_Blog.CoreLayer.Services.Posts;
 using Mag_Blog.Web.Areas.Admin.Models.Posts;
 using Microsoft.AspNetCore.Mvc;
@@ -61,11 +62,11 @@ public class PostController : BaseAdminController
             Description = posts.Description,
             CategoryId = posts.CategoryId,
             Slug = posts.Slug,
-            SubCategoryId = posts.SubCategoryId,
+            SubCategoryId = posts.SubCategoryId
         };
 
         return View(r);
-    }
+    } 
 
     [HttpPost]
     [ValidateAntiForgeryToken]

@@ -31,7 +31,8 @@ public class PostService : IPostService
             Slug = command.Slug.ToSlug(),
             CategoryId = command.CategoryId,
             UserId = command.UserId,
-            Visited = 0
+            Visited = 0,
+            ImageName = _file.SaveFile(command.ImageFile,Directories.PostImage)
         });
 
         _context.SaveChanges();
@@ -55,7 +56,7 @@ public class PostService : IPostService
 
     public PostDto GetPostById(int id)
     {
-        var r = _context.Posts.FirstOrDefault(p => p.Id == id);
+        var r = _context.Posts.Include(p=>p.Category).Include(o=>o.SubCategory).FirstOrDefault(p => p.Id == id);
         if (r == null) return null;
 
         return new PostDto
