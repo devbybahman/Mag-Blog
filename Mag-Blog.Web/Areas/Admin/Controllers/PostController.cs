@@ -71,7 +71,8 @@ public class PostController : BaseAdminController
     [ValidateAntiForgeryToken]
     public IActionResult Edit(int id, EditPostViewModel viewModel)
     {
-        if (!ModelState.IsValid) return View(viewModel);
+        if (!ModelState.IsValid)
+            return View(viewModel);
         var r = _service.EditPost(new EditPostDTO
         {
             Title = viewModel.Title,

@@ -18,6 +18,7 @@ public class PostDto
     public string ImageName { get; set; }
     public DateTime CreationDate { get; set; }
     public CategoryDTO Category { get; set; }
+    public CategoryDTO SubCategory { get; set; }
     public int Visited { get; set; }
     public IFormFile ImageFile { get; set; }
 }
