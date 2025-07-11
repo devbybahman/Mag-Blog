@@ -39,7 +39,7 @@ public class PostController : BaseAdminController
             CategoryId = viewModel.CategoryId,
             Slug = viewModel.Slug,
             ImageFile = viewModel.ImageFile,
-            SubCategoryId = viewModel.SubCategoryId,
+            SubCategoryId = viewModel.SubCategoryId==0?null:viewModel.SubCategoryId,
             UserId = User.GetUserId()
         });
         if (r.Status != OperationResultStatus.Success)
@@ -80,7 +80,7 @@ public class PostController : BaseAdminController
             Description = viewModel.Description,
             Slug = viewModel.Slug,
             CategoryId = viewModel.CategoryId,
-            SubCategoryId = viewModel.SubCategoryId,
+            SubCategoryId = viewModel.SubCategoryId==0?null:viewModel.SubCategoryId,
             ImageFile = viewModel.ImageFile,
             PostId = id
         });

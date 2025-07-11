@@ -62,7 +62,9 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="SubCategoryId"></label>
-                    <select asp-for="SubCategoryId" class="form-control"></select>
+                    <select asp-for="SubCategoryId" class="form-control">
+                         <option value="0">انتخاب کنید</option>
+                    </select>
                     <span asp-validation-for="SubCategoryId" class="text-danger"></span>
                 </div>
             </div>
@@ -86,7 +88,7 @@
         url:"/admin/category/GetChildCategories?parentid="+value,
         type:"get"
         }).done(function (date){
-              $("#SubCategoryId").html(`<option value="null">انتخاب کنید</option>`)
+              $("#SubCategoryId").html(`<option value="0">انتخاب کنید</option>`)
             for (var i in date)
             {
                 var cat=date[i];
