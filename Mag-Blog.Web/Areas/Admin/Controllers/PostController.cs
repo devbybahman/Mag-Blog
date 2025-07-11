@@ -86,7 +86,7 @@ public class PostController : BaseAdminController
         });
         if (r.Status != OperationResultStatus.Success)
         {
-            ModelState.AddModelError("", r.Message);
+            ModelState.AddModelError(nameof(viewModel.Slug), r.Message);
             return View(viewModel);
         }
 
